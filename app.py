@@ -3,13 +3,15 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Database Connection
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="portfolio_db"
-)
+import os
+import psycopg2
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+conn = psycopg2.connect(DATABASE_URL)
+cursor = conn.cursor()
+
+
 
 cursor = db.cursor()
 
