@@ -8,6 +8,8 @@ import psycopg2
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
+print("DB URL:", DATABASE_URL)
+
 conn = psycopg2.connect(DATABASE_URL)
 cursor = conn.cursor()
 
