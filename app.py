@@ -5,7 +5,10 @@ app = Flask(__name__)
 import os
 import psycopg2
 
-DATABASE_URL =" postgresql://mydb_g1lj_user:zNyAZkga43HqsdfncsjUcRLLfKVZLg64@dpg-d71a9o5actks738rekg0-a/mydb_g1lj"
+DATABASE_URL ="postgresql://mydb_g1lj_user:zNyAZkga43HqsdfncsjUcRLLfKVZLg64@dpg-d71a9o5actks738rekg0-a/mydb_g1lj"
+
+if DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgres://")
 
 print("DB URL:", DATABASE_URL)
 
